@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>Telegram Test</title></head>
+<body>
+  <h3>Send a Test Message</h3>
+  <button onclick="send()">Send</button>
+  <p id="status"></p>
+
+  <script>
+    function send() {
+      fetch("https://script.google.com/macros/s/AKfycbxtfRJLZeLJ7H_jFEM5IzE0PZoccZAayYpIcWLYpMFcOQr6FSiRxc8e2cgxbE1ev7auuw/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: "✅ Test from button!" })
+      })
+      .then(res => res.text())
+      .then(txt => document.getElementById('status').innerText = "Bot response: " + txt)
+      .catch(err => document.getElementById('status').innerText = "Error: " + err);
+    }
+  </script>
+</body>
+</html>
