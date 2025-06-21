@@ -8,13 +8,14 @@
 
   <script>
   function send() {
-    const message = encodeURIComponent("✅ Test message from GitHub Pages!");
-    const url = `https://script.google.com/macros/s/AKfycbxtfRJLZeLJ7H_jFEM5IzE0PZoccZAayYpIcWLYpMFcOQr6FSiRxc8e2cgxbE1ev7auuw/exec?message=${message}`;
-    
-    fetch(url)
-      .then(res => res.text())
-      .then(txt => document.getElementById('status').innerText = "Bot response: " + txt)
-      .catch(err => document.getElementById('status').innerText = "Error: " + err);
+    const msg = encodeURIComponent("✅ Hello from Cibin's GitHub Page!");
+    const url = `https://script.google.com/macros/s/AKfycbxtfRJLZeLJ7H_jFEM5IzE0PZoccZAayYpIcWLYpMFcOQr6FSiRxc8e2cgxbE1ev7auuw/exec?message=${msg}`;
+
+    const script = document.createElement('script');
+    script.src = url;
+    document.body.appendChild(script);
+
+    document.getElementById('status').innerText = "Sent! Check your Telegram.";
   }
 </script>
 
